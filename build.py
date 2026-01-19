@@ -12,10 +12,10 @@ CY = CX * 1.2
 ASCENT = CX * 2 * 7
 BASELINE = 2
 DESCENT = CX * 2 * BASELINE
-SIDE = CX
+SIDE = CX * 0.9
 
-NO_LEFT = set(' .,;:-!|ijst')
-NO_RIGHT = set('rf')
+NO_LEFT = set(' _.,;:-!|ijst')
+NO_RIGHT = set('_rf')
 
 SUBST = {'\\': '/', '.': '.', ';': ':'}
 
@@ -29,9 +29,13 @@ def main():
     font.encoding = 'UnicodeFull'
     font.ascent = ASCENT
     font.descent = DESCENT
+
     font.familyname = 'Cosm'
     font.fontname = 'Cosm'
     font.fullname = 'Cosm Regular'
+
+    font.copyright = 'Copyright (c) 2026 ayukmr'
+    font.version = '0.1.0'
 
     for path in sorted(Path('./glyphs').glob('*.png')):
         create_char(font, path)
